@@ -1,17 +1,15 @@
-import { Link } from 'react-router-dom';
-import { Box, IconButton, Slide, styled } from '@mui/material';
+import { Box, Slide, styled } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { DarkMode, LightMode } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
+import { TolgeeLogo } from 'tg.component/common/icons/TolgeeLogo';
+import { useConfig } from 'tg.globalContext/helpers';
 import { LocaleMenu } from '../../LocaleMenu';
 import { UserMenu } from '../../security/UserMenu/UserMenu';
-import { useConfig } from 'tg.globalContext/helpers';
-import { TolgeeLogo } from 'tg.component/common/icons/TolgeeLogo';
-import { useTopBarHidden } from './TopBarContext';
-import { useThemeContext } from '../../../ThemeProvider';
 import { AdminInfo } from './AdminInfo';
+import { useTopBarHidden } from './TopBarContext';
 
 export const TOP_BAR_HEIGHT = 52;
 
@@ -33,6 +31,7 @@ const StyledAppBar = styled(AppBar)(
 const StyledToolbar = styled(Toolbar)`
   padding-right: 12.5px !important;
   padding-left: 12.5px !important;
+  border: 2px solid #25C3FA !important;
 `;
 
 const StyledVersion = styled(Typography)`
@@ -66,10 +65,10 @@ const StyledTolgeeLink = styled(Link)`
   }
 `;
 
-const StyledIconButton = styled(IconButton)`
-  width: 40px;
-  height: 40px;
-`;
+// const StyledIconButton = styled(IconButton)`
+//   width: 40px;
+//   height: 40px;
+// `;
 
 type Props = {
   autoHide?: boolean;
@@ -83,20 +82,21 @@ export const TopBar: React.FC<Props> = ({
   isDebuggingCustomerAccount = false,
 }) => {
   const config = useConfig();
-
   const trigger = useTopBarHidden() && autoHide;
+  const platformName = "";
 
-  const { mode, setMode } = useThemeContext();
+  // const { mode, setMode } = useThemeContext();
 
-  const toggleTheme = () => {
-    if (mode === 'dark') {
-      setMode('light');
-    } else {
-      setMode('dark');
-    }
-  };
+  // const toggleTheme = () => {
+  //   if (mode === 'dark') {
+  //     setMode('light');
+  //   } else {
+  //     setMode('dark');
+  //   }
+  // };
 
   return (
+    <div>
     <Slide appear={false} direction="down" in={!trigger}>
       <StyledAppBar>
         <StyledToolbar>
@@ -109,10 +109,10 @@ export const TopBar: React.FC<Props> = ({
                     display="flex"
                     justifyItems="center"
                   >
-                    <TolgeeLogo fontSize="large" />
+                    <TolgeeLogo />
                   </StyledLogoWrapper>
                   <StyledLogoTitle variant="h5" color="inherit">
-                    {config.appName}
+                    {platformName}
                   </StyledLogoTitle>
                   {config.showVersion && (
                     <StyledVersion variant="body1">
@@ -127,13 +127,14 @@ export const TopBar: React.FC<Props> = ({
               debuggingCustomerAccount={isDebuggingCustomerAccount}
             />
           </Box>
-          <StyledIconButton onClick={toggleTheme} color="inherit">
-            {mode === 'dark' ? <LightMode /> : <DarkMode />}
-          </StyledIconButton>
+          {/* <StyledIconButton onClick={toggleTheme} color="inherit"> */}
+            {/* {mode === 'dark' ? <LightMode /> : <DarkMode />} */}
+          {/* </StyledIconButton> */}
           <LocaleMenu />
           <UserMenu />
         </StyledToolbar>
       </StyledAppBar>
     </Slide>
+    </div>
   );
 };

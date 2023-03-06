@@ -32,10 +32,20 @@ const StyledSpaced = styled('div')`
 
 const StyledTranslationsSearchField = styled(TranslationsSearchField)`
   min-width: 200px;
+  background: #EDF2FF;
+  radius: 5px;
 `;
 
 const StyledToggleButton = styled(Button)`
   padding: 4px 8px;
+  background-color:#015BFF;
+  color: white;
+  radius: 5px;
+  &:hover {
+    background-color: white;
+    color: #015BFF;
+    radius: 5px;
+  }
 `;
 
 type Props = {
@@ -108,6 +118,7 @@ export const TranslationControls: React.FC<Props> = ({ onDialogOpen }) => {
             </Button>
           )}
         </StyledSpaced>
+        
       </StyledContainer>
     </StickyHeader>
   );

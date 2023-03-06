@@ -43,10 +43,10 @@ export type Marker = {
 export const colors = {
   light: {
     white: '#fff',
-    primary: '#822B55',
+    primary: '#015BFF',
     secondary: '#2B5582',
     default: grey[700],
-    navbarBackground: '#822B55',
+    navbarBackground: '#fff',
     text: '#525252',
     textSecondary: '#808080',
     divider1: '#00000014',

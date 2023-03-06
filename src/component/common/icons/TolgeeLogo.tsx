@@ -1,10 +1,10 @@
 import { FunctionComponent } from 'react';
-import { SvgIcon, SvgIconProps } from '@mui/material';
+import { SvgIconProps } from '@mui/material';
 
-import { ReactComponent as Logo } from 'tg.svgs/tolgeeLogo.svg';
+
 
 export const TolgeeLogo: FunctionComponent<SvgIconProps> = (props) => (
-  <SvgIcon {...props}>
-    <Logo opacity={0.99} />
-  </SvgIcon>
+<div>
+      <img src="/MAX.png" width="61" height="45"/>
+    </div>
 );

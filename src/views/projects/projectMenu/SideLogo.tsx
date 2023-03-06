@@ -34,10 +34,13 @@ type Props = {
 
 export const SideLogo: React.FC<Props> = ({ hidden }) => {
   return (
+    <div>
     <StyledItem>
       <StyledLink to="/" tabIndex={hidden ? -1 : undefined}>
-        <StyledTolgeeLogo fontSize="large" />
+        <StyledTolgeeLogo />
       </StyledLink>
     </StyledItem>
+    </div>
   );
 };
+

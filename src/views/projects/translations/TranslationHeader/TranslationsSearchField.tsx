@@ -22,7 +22,7 @@ const TranslationsSearchField = (
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
-            <Search />
+            <Search style={{ color: '#015BFF' }}/>
           </InputAdornment>
         ),
         endAdornment: Boolean(value) && (

@@ -60,7 +60,7 @@ const righteousLatinExt = {
 };
 
 const getTheme = (mode: PaletteMode) => {
-  const c = mode === 'light' ? colors.light : colors.dark;
+  const c = mode === 'light' ? colors.light : colors.light;
 
   return createTheme({
     typography: {

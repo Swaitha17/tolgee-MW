@@ -75,6 +75,7 @@ const StyledKey = styled('div')`
   margin: 12px 12px 8px 12px;
   overflow: hidden;
   position: relative;
+
 `;
 
 const StyledTags = styled('div')`

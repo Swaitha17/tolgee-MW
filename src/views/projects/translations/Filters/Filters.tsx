@@ -24,6 +24,7 @@ import { useEffect } from 'react';
 const StyledWrapper = styled('div')`
   display: flex;
   align-items: center;
+  background-color: #EDF2FF;
 `;
 
 const StyledSelect = styled(Select)`
