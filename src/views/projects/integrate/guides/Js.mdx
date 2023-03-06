@@ -1,0 +1,58 @@
+import { GoToDocsButton } from '../component/GoToDocsButton';
+
+<GoToDocsButton
+  href="https://tolgee.io/docs/web/using_with_npm/installation"
+  style={{ float: 'right' }}
+/>
+
+To use Tolgee with NPM, please visit [docs](https://tolgee.io/docs/web/using_with_npm/installation).
+
+It works fine with Webpack or Rollup projects! ;)
+
+## Install packages
+
+```shell-session
+npm install @tolgee/web
+```
+
+## Create Tolgee instance
+
+```javascript
+import { Tolgee, FormatSimple, DevTools, BackendFetch } from '@tolgee/web';
+
+const tolgee = Tolgee()
+  .use(DevTools())
+  .use(FormatSimple())
+  .use(BackendFetch())
+  .init({
+    // ############################################################
+    // ## you should never leak your API key                     ##
+    // ## remove it in for production publicly accessible site   ##
+    // ############################################################
+    apiKey: '{{{apiKey}}}',
+    apiUrl: '{{{apiUrl}}}',
+    defaultLanguage: 'en',
+    observerType: 'text',
+    observerOptions: { inputPrefix: '{{', inputSuffix: '}}' },
+  });
+
+tolgee.run();
+```
+
+## Do stuff when Tolgee is loaded (optional)
+
+```javascript
+tolgee.run().then(() => {
+  document.getElementById('loading').style.display = 'none';
+});
+```
+
+## Use Tolgee!
+
+```javascript
+tolgee.on('update', () => {
+  tolgee.t('tolgee_example_title', { noWrap: true }).then((translation) => {
+    document.title = translation; // change the document title when language changes!
+  });
+});
+```
